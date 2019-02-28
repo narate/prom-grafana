@@ -1,0 +1,12 @@
+version: '3.7'
+services:
+  grafana:
+    image: grafana/grafana
+    restart: always
+    container_name: grafana
+    hostname: grafana
+    volumes:
+      - ./grafana-storage:/var/lib/grafana
+      - ./grafana.ini:/etc/grafana/grafana.ini
+    ports:
+      - "127.0.0.1:3000:3000"

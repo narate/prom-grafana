@@ -1,0 +1,14 @@
+version: '3.7'
+services:
+  prom:
+    image: prom/prometheus
+    restart: always
+    network_mode: host
+    container_name: prom
+    command: ["--config.file=/conf/prometheus.yml",
+              "--storage.tsdb.retention=90d",
+              "--web.listen-address=10.10.0.10:9090",
+              "--web.enable-lifecycle"]
+    volumes:
+      - ./conf:/conf
+      - ./prometheus_data:/prometheus
