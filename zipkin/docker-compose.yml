@@ -1,0 +1,14 @@
+version: '3.7'
+services:
+  zipkin:
+    image: openzipkin/zipkin
+    container_name: zipkin
+    restart: always
+    environment:
+      - STORAGE_TYPE=elasticsearch
+      - STORAGE_PORT_9200_TCP_ADDR=ELASTICSEARCH_IP_ADDRESS
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - 9411:9411
+
