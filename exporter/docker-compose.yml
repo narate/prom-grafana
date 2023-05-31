@@ -6,4 +6,4 @@ services:
     container_name: node-exporter
     network_mode: host
     pid: host
-    command: ["--web.listen-address=10.10.0.10:9100"]
+    command: ["--web.listen-address=0.0.0.0:9100"]
